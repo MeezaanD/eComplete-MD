@@ -124,8 +124,10 @@ function displayStoredProducts() {
       <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
       <p>${product.productDesc}</p>
       <p>Price: R${product.prodPrice}</p>
-      <button onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button>
+      <ul class="shop-list">
+      <li><button onclick="addToCart(${product.id})">Add to Cart</button></li>
       <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
+      </ul>
     `;
     rowContainer.appendChild(productCard);
   });
@@ -168,8 +170,10 @@ displayStoredProducts();
         <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
         <p>${product.productDesc}</p>
         <p>Price: R${product.prodPrice}</p>
-        <button onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button>
-        <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
+        <ul class="shop-list">
+        <li><button class="btn add" onclick="addToCart(${product.id})">Add to Cart</button></li>
+        <li><a class="btn view" href="./products.html?id=${product.id}">View Product</a></li>
+      </ul>
       `;
       rowContainer.appendChild(productCard);
     });
@@ -216,7 +220,7 @@ function displayFilteredProducts(filteredProducts) {
       <p>${product.productDesc}</p>
       <p>Price: R${product.prodPrice}</p>
       <ul class="shop-list">
-        <li><button class="add" onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button></li>
+        <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>
         <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
       </ul>
     `;
@@ -237,29 +241,6 @@ displayProducts();
 
 // ---------------------------------------------------------------------------------------------
 
-function addToCart(product) {
-  cart.push(product);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartDisplay();
-}
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let cartContainer = document.getElementById("cart");
-
-function updateCartDisplay() {
-  cartContainer.innerHTML = "";
-
-  cart.forEach(function(item) {
-    let cartItemElement = document.createElement("div");
-    cartItemElement.classList.add("cart-item");
-    cartItemElement.innerHTML = `
-      <p>${item.productName} - R${item.prodPrice}</p>
-    `;
-    cartContainer.appendChild(cartItemElement);
-  });
-}
-
-updateCartDisplay(); 
 
 // Add this event listener to the document
 document.addEventListener("click", function(event) {
@@ -269,3 +250,57 @@ document.addEventListener("click", function(event) {
     window.location.href = `./products.html?id=${productId}`; // Redirect to the product.html page with the product ID
   }
 });
+
+// ---------------------------------------------------------------------------------------------
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCart() {
+  let cartContainer = document.getElementById("cart-body");
+  localStorage.setItem("cart", JSON.stringify(cart));
+  cartContainer.innerHTML = "";
+  cart.forEach((product, index) => {
+    let cartItem = document.createElement("div");
+    cartItem.innerHTML = `
+      <p>${product.productName}</p>
+      <p>R${product.prodPrice}</p>
+      <input type="number" placeholder="1" min="1" width="50px" height="40px" onchange="updateQuantity(${index}, this.value)">
+      <p>Total R ${product.prodPrice}</p>
+      <button onclick="removeFromCart(${index})" class="remove-btn">Remove</button>
+    `;
+    cartContainer.appendChild(cartItem);
+  });
+}
+
+function updateQuantity(index, quantity) {
+  cart[index].quantity = Number(quantity);
+  updateCart();
+}
+
+function addToCart(productId) {
+  let product = products.find((product) => Number(product.id) === productId);
+  if (product) {
+    product.quantity = 1; // Set the default quantity to 1
+    cart.push(product);
+    alert('Product added');
+    updateCart();
+  }
+}
+
+function removeFromCart(index) {
+  let removedProduct = cart.splice(index, 1)[0];
+  removedProduct.quantity++;
+  updateCart();
+}
+
+function calculateTotalPrice() {
+  let totalPrice = 0;
+  cart.forEach((product) => {
+    totalPrice += product.prodPrice * product.quantity;
+  });
+  return totalPrice;
+}
+
+
+
+

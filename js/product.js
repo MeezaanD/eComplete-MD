@@ -121,7 +121,7 @@ if (product) {
 } else {
   // Handle the case where the product is not found
   const productDetailsContainer = document.getElementById("productDetailsContainer");
-  productDetailsContainer.innerHTML = "<p>Product not found.</p>";
+  productDetailsContainer.innerHTML = "<p>No product Selected. Too see click on view Product on Store Page</p>";
 }
 
 // Add product to cart
