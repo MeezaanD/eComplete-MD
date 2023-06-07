@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.postimg.cc/tC7tjHpK/icon.png">
     <link rel="stylesheet" href="/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -13,7 +14,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-black">
+        <nav class="navbar navbar-expand-lg bg-black fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img class="logo"
                         src="https://i.postimg.cc/j2QLBRq3/14d87a3887139e044ed629ae32107c1e.jpg" alt=""></a>
@@ -28,17 +29,10 @@
                             <a class="nav-link text-light active" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="./products.html">Products</a>
+                            <a class="nav-link text-light" href="#">Store</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Categories
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./products.html">Products</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
@@ -56,28 +50,45 @@
     <main>
 
         <div id="cart"></div>
-        
 
-        <div class="container py-3 d-flex justify-content-center">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6">
-                    <button onclick="sortProductsByName()">Sort by Name</button>
+                <div class="col-4 col-sm-4 col-md-4 col-lg-2">
+                    <ul class="methods">
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropdown-toggle sort" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Sort Price
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><button class="sort" onclick="sortProductsByPriceDescending()">High to Low</button></li>
+                                    <li><button class="sort" onclick="sortProductsByPriceAscending()">Low to High </button></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <select id="categoryFilter" onchange="filterProducts()">
+                                <option value="">Display All Products</option>
+                                <option value="phone">iPhone</option>
+                                <option value="macbook">Macbook</option>
+                                <option value="watch">Smart Watch</option>
+                                <option value="headphone">Airpods</option>
+                            </select>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-6">
-                    <select id="categoryFilter" onchange="filterProducts()">
-                        <option value="">All</option>
-                        <option value="phone">Phone</option>
-                        <option value="macbook">Macbook</option>
-                        <option value="watch">Watch</option>
-                        <option value="headphone">Headphone</option>
-                    </select>
+                <div class="col-8 col-sm-8 col-md-8 col-lg-12">
+                    <div id="productsContainer"></div>
                 </div>
             </div>
         </div>
 
 
 
-        <div id="productsContainer"></div>
+
+
+
 
 
     </main>
@@ -90,14 +101,47 @@
 
 
     <footer>
-
+        <div class="container-fluid text-start">
+            <div class="row align-items-center pt-5">
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <h5>Company</h5>
+                    <ul class="footer-list">
+                        <li><a class="nav-link" href="../index.html#home">Home</a></li>
+                        <li><a class="nav-link" href="../index.html#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-list">
+                        <li><a class="nav-link" href="#">Categories</a></li>
+                        <li><a class="nav-link" href="./checkout.html">Checkout</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <ul class="footer-list">
+                        <h5>More Information</h5>
+                        <li><a class="nav-link" href="#">Terms & Conditions</a></li>
+                        <li><a class="nav-link" href="#">FAQ</a></li>
+                        <li><a class="text-transparent" href="#">Text</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                    <h5>Address: </h5>
+                    <p>
+                        314 Lorem ipsum dolor sit <br>
+                        7800
+                    </p>
+                    <p> &copy;Copyright | 2023 All Rights Reserved </p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/a13e2b2f6c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
