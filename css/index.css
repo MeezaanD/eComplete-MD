@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+    width: 3rem;
+}
+
+.carousel-item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: 20rem;
+}
+
+#home {
+    min-height: 100vh;
+}
+
+#featured {
+    min-height: 100vh;
+}
+
+#about {
+    min-height: 100vh;
+}
+
+i {
+    color: black;
+    font-size: 20px;
+}
+
+@media (max-width: 500px) {
+    .nav {
+        display: block;
+    }
+}
+
+#fproducts {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rem;
+}
+
+.product {
+    flex-basis: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.product-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.product-card {
+    flex: 0 0 33.33%;
+    /* Adjust the value to control the width of each product card */
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    .product {
+        flex-basis: 100%;
+    }
+}
