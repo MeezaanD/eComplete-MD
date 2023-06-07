@@ -100,36 +100,41 @@ let products = [
 
 // ---------------------------------------------------------------------------------------------
   
+// Storing the products array in localStorage
+localStorage.setItem("products", JSON.stringify(products));
 
 
 // ---------------------------------------------------------------------------------------------
 // CATEGORY METHOD
-let productsContainer = document.getElementById("productsContainer");
+// Retrieving the products array from localStorage
+let storedProducts = JSON.parse(localStorage.getItem("products"));
 
-function displayProducts() {
-    productsContainer.innerHTML = "";
-  
-    // Add a wrapper div for the row layout
-    let rowContainer = document.createElement("div");
-    rowContainer.classList.add("product-row");
-  
-    products.forEach(function(product) {
-      let productCard = document.createElement("div");
-      productCard.classList.add("product-card");
-      productCard.innerHTML = `
-        <h4>${product.productName}</h4>
-        <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
-        <p>${product.productDesc}</p>
-        <p>Price: R${product.prodPrice}</p>
-        <button class="add" onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button>
-        <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
-      `;
-      rowContainer.appendChild(productCard);
-    });
-  
-    // Append the row container to the products container
-    productsContainer.appendChild(rowContainer);
-  }
+// Displaying the stored products
+function displayStoredProducts() {
+  productsContainer.innerHTML = "";
+
+  let rowContainer = document.createElement("div");
+  rowContainer.classList.add("product-row");
+
+  storedProducts.forEach(function(product) {
+    let productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+      <h4>${product.productName}</h4>
+      <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
+      <p>${product.productDesc}</p>
+      <p>Price: R${product.prodPrice}</p>
+      <button onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button>
+      <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
+    `;
+    rowContainer.appendChild(productCard);
+  });
+
+  productsContainer.appendChild(rowContainer);
+}
+
+displayStoredProducts();
+
   // ---------------------------------------------------------------------------------------------
   
   function filterProducts() {
