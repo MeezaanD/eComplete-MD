@@ -9,16 +9,34 @@
 }
 
 .logo {
-    width: 3rem;
+    width: 2.5rem;
 }
 
-h2, h3, h4, h5, h6 {
+img {
+    padding: 1.5rem;
+}
+
+img:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
     letter-spacing: 1px;
     font-weight: bolder;
 }
 
+b {
+    font-weight: 900;
+    letter-spacing: 1px;
+}
 
-.add, .sort {
+.add,
+.sort {
     padding: 1rem;
     height: 4rem;
     border-radius: 2px;
@@ -29,7 +47,6 @@ h2, h3, h4, h5, h6 {
 
 .view {
     text-decoration: none;
-    margin: 8rem 0 0 2px;
     padding: 1rem;
     height: 8rem;
     border-radius: 2px;
@@ -38,13 +55,56 @@ h2, h3, h4, h5, h6 {
     box-shadow: 3px 3px rgb(140, 140, 140);
 }
 
+.remove {
+    padding: 0.5rem;
+    width: 6rem;
+    height: 3rem;
+    border-radius: 2px;
+    color: white;
+    background-color: black;
+    box-shadow: 3px 3px rgb(140, 140, 140);
+}
+
+input[type="number"] {
+    width: 6rem;
+    height: 3rem;
+    text-align: center;
+}
+
+.cart-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.mini-img {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.cart-list li {
+    margin-top: 0.5rem;
+}
+
+.cart-item {
+    margin-top: 2rem;
+    padding-left: 1rem;
+}
+
+.cart-btns {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
 .methods {
     list-style: none;
-    margin-top: 5rem;
     display: flex;
     justify-content: center;
     gap: 2rem;
-} 
+}
 
 .methods li {
     margin-top: 1rem;
@@ -70,12 +130,16 @@ h2, h3, h4, h5, h6 {
 
 #home {
     min-height: 90vh;
-    background-color: rgba(250,250,250,255);
+    background-color: rgba(250, 250, 250, 255);
+}
+
+.sub-menu {
+    background-color: rgba(250, 250, 250, 255);
 }
 
 #featured {
     min-height: 100vh;
-    background-color: rgba(250,250,250,255);
+    background-color: rgba(250, 250, 250, 255);
 }
 
 #about {
@@ -85,13 +149,14 @@ h2, h3, h4, h5, h6 {
 
 #reviews {
     min-height: 100vh;
-    background-color: rgba(250,250,250,255);
+    background-color: rgba(250, 250, 250, 255);
 }
 
 footer {
     min-height: 20vh;
-    background-color: rgba(220,220,220,220);
-    padding: 0 5rem 0 5rem ;
+    width: 100%;
+    background-color: rgba(220, 220, 220, 220);
+    padding: 0 5rem 0 5rem;
 }
 
 .footer-list {
@@ -103,7 +168,8 @@ footer {
     color: transparent;
 }
 
-.fa-circle-arrow-left, .fa-circle-right {
+.fa-circle-arrow-left,
+.fa-circle-right {
     color: black;
     font-size: 20px;
 }
@@ -142,7 +208,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 5rem;
+    padding: 0 5rem 0 5rem;
 }
 
 .product-card {
@@ -169,6 +235,10 @@ footer {
 
     .methods li {
         margin-bottom: 0.5rem;
+    }
+
+    .cart-list {
+        display: block;
     }
 
 

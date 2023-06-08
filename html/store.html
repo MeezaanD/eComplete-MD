@@ -14,10 +14,8 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-black fixed-top">
+        <nav class="navbar navbar-expand-lg bg-black sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img class="logo"
-                        src="https://i.postimg.cc/j2QLBRq3/14d87a3887139e044ed629ae32107c1e.jpg" alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -26,19 +24,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                         <li class="nav-item">
+                            <a class="navbar-brand" href="../index.html">
+                                <i class="fa-brands fa-apple" style="color: #ffffff;"></i>x
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-light active" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Store</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="./products.html">Products</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
                             <a class="nav-link text-light" href="./checkout.html">Checkout
-                                <i class="fa-solid fa-cart-shopping"></i>
                             </a>
                         </li>
                     </ul>
@@ -51,7 +48,7 @@
 
         <div id="cart"></div>
 
-        <div id="cart-body"></div>
+        <div id="shopping-cart"></div>
 
         <ul class="methods">
             <li>
@@ -60,7 +57,7 @@
                         aria-expanded="false">
                         Sort Price
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu p-0">
                         <li><button class="sort" onclick="sortProductsByPriceDescending()">High to
                                 Low</button></li>
                         <li><button class="sort" onclick="sortProductsByPriceAscending()">Low to High
