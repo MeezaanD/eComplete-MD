@@ -48,42 +48,76 @@
 
 
         <button style="display: none;" id="view-cart-btn">View Cart</button>
-
+        <div style="display: none" id="featured-products"></div>
         <div style="display: none;" id="productsContainer"></div>
+        <div style="display: none;" id="productDetailsContainer"></div>
 
-        <div class="container-fluid" style="padding-top: 3.5rem;">
+        <div class="container-fluid ">
             <div class="row align-items-start">
-                <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                <form onsubmit="purchaseCart()" class="row g-3 px-5">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
                     <h2>Shipping Address</h2>
-                    <form action="">
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="First name"
-                                    aria-label="First name">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                            </div>
+                    
+                    <div class="row g-3 pt-5">
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="loremipsum@gmail.com" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Example label</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput"
-                                placeholder="Example input placeholder">
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <label for="inputPassword4" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="**********" required>
+                        
                         </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput2" class="form-label">Another label</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2"
-                                placeholder="Another input placeholder">
+                      </div>
+                        <div class="col-12">
+                          <label for="inputAddress" class="form-label">Street</label>
+                          <input type="text" class="form-control" id="inputAddress" placeholder="314 Imam Haron Road" required>
                         </div>
-                    </form>
+                        <div class="col-12">
+                          <label for="inputAddress" class="form-label">Suburb</label>
+                          <input type="text" class="form-control" id="inputAddress" placeholder="Landsdowne" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputCity" class="form-label">City</label>
+                          <input type="text" class="form-control" id="inputCity" placeholder="Cape Town" required>
+                        </div>
+                        <div class="col-md-4">
+                          <label for="inputState" class="form-label">State</label>
+                          <select id="inputState" class="form-select" required>
+                            <option selected>Choose...</option>
+                            <option>North Cape</option>
+                            <option>Eastern Cape</option>
+                            <option>Western Cape</option>
+                            <option>Gauteng</option>
+                          </select>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="inputZip" class="form-label">Postal Code</label>
+                          <input type="text" class="form-control" id="inputZip" placeholder="7880" required>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                              Save Details 
+                            </label>
+                          </div>
+                        </div>
+                        
                 </div>
-                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-12 col-sm-4 col-md-4 col-lg-6">
                     <h2>Order Summary</h2>
                     <div id="shopping-cart"></div>
+                    <div id="totalPrice"></div>
+                    <div class="col-12">
+                        <button type="submit" class="purchase">Purchase Items</button>
+                      </div>
                 </div>
+                
+            </form>
             </div>
         </div>
-
+        
     </main>
 
 

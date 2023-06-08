@@ -106,9 +106,14 @@
         <section id="featured">
             <h2 class="text-center">FEATURED PRODUCTS</h2>
 
-            <div id="fproducts"></div>
+            <div id="featured-products"></div>
+            <div style="display: none;" id="productsContainer"></div>
+            <div style="display: none;" id="productDetailsContainer"></div>
+            <div style="display: none;" id="shopping-cart"></div>
+            <div style="display: none;" id="totalPrice"></div>
 
-            <div id="cart-body"></div>
+
+
 
         </section>
 
@@ -167,39 +172,7 @@
     </style>
 
     <script src="/js/main.js"></script>
-    <script>
-        // Get the container element in which products will be displayed
-        let featuredProducts = document.getElementById("fproducts");
-
-        // Define the IDs of the products you want to display
-        let desiredProductIDs = [3, 6, 9, 12];
-
-        // Loop through the products array and create HTML elements for each desired product
-        products.forEach(function (product) {
-            // Check if the product ID is included in the desiredProductIDs array
-            if (desiredProductIDs.includes(product.id)) {
-                // Create the product element
-                let featuredElement = document.createElement("div");
-
-                // Add a CSS class to the product element
-                featuredElement.classList.add("product");
-
-                // Set the product details as inner HTML of the product element
-                featuredElement.innerHTML = `
-                <h4>${product.productName}</h4>
-                <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
-                <p>${product.productDesc}</p>
-                <p>Price: R${product.prodPrice}</p>
-                <button class="add" onclick="addToCart(${product.id})">Add to Cart</button>
-                `;
-
-                // Append the product element to the container
-                featuredProducts.appendChild(featuredElement);
-
-            }
-
-        });
-    </script>
+ 
     <script src="https://kit.fontawesome.com/a13e2b2f6c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">

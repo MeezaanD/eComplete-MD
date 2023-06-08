@@ -122,120 +122,26 @@ let products = [
   }
 ];
 
-// ---------------------------------------------------------------------------------------------
-  
 // Storing the products array in localStorage
 localStorage.setItem("products", JSON.stringify(products));
 
-
 // ---------------------------------------------------------------------------------------------
-// CATEGORY METHOD
+
 // Retrieving the products array from localStorage
 let storedProducts = JSON.parse(localStorage.getItem("products"));
 
+// Storing the cart array in localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 // Displaying the stored products
 function displayStoredProducts() {
+  let productsContainer = document.getElementById("productsContainer");
   productsContainer.innerHTML = "";
 
   let rowContainer = document.createElement("div");
   rowContainer.classList.add("product-row");
 
   storedProducts.forEach(function(product) {
-    let productCard = document.createElement("div");
-    productCard.classList.add("product-card");
-    productCard.innerHTML = `
-      <h4>${product.productName}</h4>
-      <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
-      <p>${product.productDesc}</p>
-      <p>Price: R${product.prodPrice}</p>
-      <ul class="shop-list">
-      <li><button onclick="addToCart(${product.id})">Add to Cart</button></li>
-      <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
-      </ul>
-    `;
-    rowContainer.appendChild(productCard);
-  });
-
-  productsContainer.appendChild(rowContainer);
-}
-
-displayStoredProducts();
-
-  // ---------------------------------------------------------------------------------------------
-  
-  function filterProducts() {
-    let categoryFilter = document.getElementById("categoryFilter").value;
-    let filteredProducts;
-  
-    if (categoryFilter) {
-      filteredProducts = products.filter(function(product) {
-        return product.category === categoryFilter;
-      });
-    } else {
-      filteredProducts = products;
-    }
-  
-    displayFilteredProducts(filteredProducts);
-  }
-  
-// ---------------------------------------------------------------------------------------------
-  function displayFilteredProducts(filteredProducts) {
-    productsContainer.innerHTML = "";
-  
-    // Add a wrapper div for the row layout
-    let rowContainer = document.createElement("div");
-    rowContainer.classList.add("product-row");
-  
-    filteredProducts.forEach(function(product) {
-      let productCard = document.createElement("div");
-      productCard.classList.add("product-card");
-      productCard.innerHTML = `
-        <h4>${product.productName}</h4>
-        <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
-        <p>${product.productDesc}</p>
-        <p>Price: R${product.prodPrice}</p>
-        <ul class="shop-list">
-        <li><button class="btn add" onclick="addToCart(${product.id})">Add to Cart</button></li>
-        <li><a class="btn view" href="./products.html?id=${product.id}">View Product</a></li>
-      </ul>
-      `;
-      rowContainer.appendChild(productCard);
-    });
-  
-    // Append the row container to the products container
-    productsContainer.appendChild(rowContainer);
-  }
-  
-
-  displayProducts();
-
-// ---------------------------------------------------------------------------------------------
-// SORT PRICING METHOD
-
-// Sorting method to sort products by highest to lowest product price
-function sortProductsByPriceDescending() {
-  let sortedProducts = products.slice().sort(function(a, b) {
-    return b.prodPrice - a.prodPrice;
-  });
-  displayFilteredProducts(sortedProducts);
-}
-
-// Sorting method to sort products by lowest to highest product price
-function sortProductsByPriceAscending() {
-  let sortedProducts = products.slice().sort(function(a, b) {
-    return a.prodPrice - b.prodPrice;
-  });
-  displayFilteredProducts(sortedProducts);
-}
-
-// Display the filtered products
-function displayFilteredProducts(filteredProducts) {
-  productsContainer.innerHTML = "";
-
-  let rowContainer = document.createElement("div");
-  rowContainer.classList.add("product-row");
-
-  filteredProducts.forEach(function(product) {
     let productCard = document.createElement("div");
     productCard.classList.add("product-card");
     productCard.innerHTML = `
@@ -254,89 +160,212 @@ function displayFilteredProducts(filteredProducts) {
   productsContainer.appendChild(rowContainer);
 }
 
-
-// Display the products
-function displayProducts() {
-  displayFilteredProducts(products);
-}
-
-displayProducts();
-
-
 // ---------------------------------------------------------------------------------------------
 
+// Filter products by category
+function filterProducts() {
+  let categoryFilter = document.getElementById("categoryFilter").value;
+  let filteredProducts;
 
-// Add this event listener to the document
-document.addEventListener("click", function(event) {
-  if (event.target.classList.contains("view")) {
-    event.preventDefault(); // Prevent the default behavior of the link
-    let productId = event.target.getAttribute("href").split("=")[1]; // Get the product ID from the query parameter
-    window.location.href = `./products.html?id=${productId}`; // Redirect to the product.html page with the product ID
+  if (categoryFilter) {
+    filteredProducts = storedProducts.filter(function(product) {
+      return product.category === categoryFilter;
+    });
+  } else {
+    filteredProducts = storedProducts;
   }
-});
+
+  displayProducts(filteredProducts);
+}
+
+// Sort products by price (descending)
+function sortProductsByPriceDescending() {
+  let sortedProducts = storedProducts.slice().sort(function(a, b) {
+    return b.prodPrice - a.prodPrice;
+  });
+  displayProducts(sortedProducts);
+}
+
+// Sort products by price (ascending)
+function sortProductsByPriceAscending() {
+  let sortedProducts = storedProducts.slice().sort(function(a, b) {
+    return a.prodPrice - b.prodPrice;
+  });
+  displayProducts(sortedProducts);
+}
 
 // ---------------------------------------------------------------------------------------------
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// Get the product ID from the query parameter
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
 
-function updateCart() {
-  let cartContainer = document.getElementById('shopping-cart');
-  localStorage.setItem("cart", JSON.stringify(cart));
-  cartContainer.innerHTML = "";
-  cart.forEach((product, index) => {
-    let cartItem = document.createElement("div");
-    cartItem.innerHTML = `
-    <ul class="cart-list">
-    <li><img style="width: 5rem;" src="${product.productImage}" alt="${product.productName}" /></li>
-    <li class="cart-item"><p>Product Name: ${product.productName}</p></li>
-    <li class="cart-item"><p>Product Price: R${product.prodPrice}</p></li>
-    </ul>
+// Find the product with the matching ID
+const product = products.find(item => item.id.toString() === productId);
 
-    <ul class="cart-btns">
-    <li><input type="number" placeholder="1" min="1" width="50px" height="40px" onchange="updateQuantity(${index}, this.value)"></li>
-    <li><button onclick="removeFromCart(${index})" class="remove">Remove</button></li>
-    </ul>
-      <p><b>Total:</b> R ${product.prodPrice}</p>
-      
-      
-    `;
-    cartContainer.appendChild(cartItem);
+// Display the product details
+if (product) {
+  const productDetailsContainer = document.getElementById("productDetailsContainer");
+  const productCard = document.createElement("div");
+  productCard.classList.add("product-card");
+  productCard.innerHTML = `
+  <div class="container">
+  <div class="row align-items-start">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+      <div class="image-container">
+      <img style="width: 20rem;" src="${product.productImage}" alt="${product.productName}" />
+      </div>
+
+      <h4>Available Colors:</h4>
+      <ul class="mini-img">
+      <li>
+      <img class="more-img" style="width: 8rem;" src="${product.prodImg1}" alt="${product.productName}" />
+      </li>
+      <li>
+      <img class="more-img" style="width: 8rem;" src="${product.prodImg2}" alt="${product.productName}" />
+      </li>
+      </ul>
+        
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-8 pt-5">
+      <h3 class="pb-3">${product.productName}</h3>
+      <div class="pt-3">
+      <p>${product.productDesc}</p>
+      <p>Price: R${product.prodPrice}</p>
+      </div>  
+      <button class="add" onclick="addToCart(${product.id})">Add to Cart</button>
+      </div>
+  </div>
+</div>
+  
+  `;
+  productDetailsContainer.appendChild(productCard);
+} else {
+  // Handle the case where the product is not found
+  const productDetailsContainer = document.getElementById("productDetailsContainer");
+  productDetailsContainer.innerHTML = "<p>No product Selected. Too see click on view Product on Store Page</p>";
+}
+
+// ---------------------------------------------------------------------------------------------
+// Display Featured Products
+
+function displayFeaturedProducts() {
+  let featuredProductsContainer = document.getElementById("featured-products");
+  featuredProductsContainer.innerHTML = "";
+
+  let featuredProducts = storedProducts.filter(function(product) {
+    return [3, 6, 9, 12].includes(product.id);
   });
+
+  let row = document.createElement("div");
+  row.classList.add("featured-product-row"); // Add a CSS class for the row
+
+  featuredProducts.forEach(function(product) {
+    let productCard = document.createElement("div");
+    productCard.classList.add("featured-product-card");
+    productCard.innerHTML = `
+      <h4>${product.productName}</h4>
+      <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
+      <p>${product.productDesc}</p>
+      <p>Price: R${product.prodPrice}</p>
+      <ul class="shop-list">
+        <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>
+        <li><a class="view" href="html/products.html?id=${product.id}">View Product</a></li>
+      </ul>
+    `;
+
+    row.appendChild(productCard);
+  });
+
+  featuredProductsContainer.appendChild(row);
 }
 
-function updateQuantity(index, quantity) {
-  cart[index].quantity = Number(quantity);
-  updateCart();
-}
+// ---------------------------------------------------------------------------------------------
 
+// --------------------------------------CART FUNCTIONALITY-------------------------------------
+
+// Add product to cart
 function addToCart(productId) {
-  let product = products.find((product) => Number(product.id) === productId);
+  let product = storedProducts.find(function(product) {
+    return product.id === productId;
+  });
+
   if (product) {
-    product.quantity = 1; // Set the default quantity to 1
     cart.push(product);
-    alert('Product added');
+    alert('Item has been added to Cart')
     updateCart();
   }
 }
 
+// Remove product from cart
 function removeFromCart(index) {
-  let removedProduct = cart.splice(index, 1)[0];
-  removedProduct.quantity++;
+  cart.splice(index, 1);
   updateCart();
 }
 
+// Update quantity of a product in the cart
+function updateProductQuantity(index, quantity) {
+  if (quantity <= 0) {
+    removeFromCart(index);
+  } else {
+    cart[index].quantity = quantity;
+    updateCart();
+  }
+}
+
+// Calculate total price of products in the cart
 function calculateTotalPrice() {
   let totalPrice = 0;
-  cart.forEach((product) => {
+
+  cart.forEach(function(product) {
     totalPrice += product.prodPrice * product.quantity;
   });
+
   return totalPrice;
 }
 
-// Display the cart in the checkout
-document.getElementById('shopping-cart').addEventListener('click', updateCart());
+// Update the cart
+function updateCart() {
+  let cartContainer = document.getElementById("shopping-cart");
+  cartContainer.innerHTML = "";
 
-// ---------------------------------------------------------------------------------------------
+  cart.forEach(function(product, index) {
+    let cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+    cartItem.innerHTML = `
+    <ul class="cart-list">
+    <li><img style="width: 8rem;" src="${product.productImage}" alt="${product.productName}" /></li>
+    <li class="cart-item"><p>${product.productName}</p></li>
+    <li class="cart-item"><p>R${product.prodPrice}</p></li>
+    </ul>
+      <input type="number" placeholder="Please enter value" value="${product.quantity}" min="1" onchange="updateProductQuantity(${index}, this.value)">
+      <button class="remove" onclick="removeFromCart(${index})">Remove</button>
+    `;
+    cartContainer.appendChild(cartItem);
+  });
 
+  let totalPrice = calculateTotalPrice();
+  let totalPriceElement = document.getElementById("totalPrice");
+  totalPriceElement.textContent = `Total: R${totalPrice}`;
+
+  // Storing the updated cart array in localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function purchaseCart() {
+  alert('Thank you for your purchase');
+  cart = [];
+  localStorage.removeItem("cart");
+  updateCart();
+}
+
+// Initialize the page
+function init() {
+  displayStoredProducts();
+  displayFeaturedProducts();
+  updateCart();
+}
+
+init();
 
 
