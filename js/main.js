@@ -161,6 +161,33 @@ function displayStoredProducts() {
 }
 
 // ---------------------------------------------------------------------------------------------
+function displayProducts() {
+  productsContainer.innerHTML = "";
+
+  // Add a wrapper div for the row layout
+  let rowContainer = document.createElement("div");
+  rowContainer.classList.add("product-row");
+
+  products.forEach(function(product) {
+    let productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+      <h4>${product.productName}</h4>
+      <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
+      <p>${product.productDesc}</p>
+      <p>Price: R${product.prodPrice}</p>
+      <button class="add" onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button>
+      <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
+    `;
+    rowContainer.appendChild(productCard);
+  });
+
+  // Append the row container to the products container
+  productsContainer.appendChild(rowContainer);
+}
+
+// ---------------------------------------------------------------------------------------------
+// --------------------------------------FILTERING FUNCTIONALITY-------------------------------------
 
 // Filter products by category
 function filterProducts() {
@@ -168,31 +195,64 @@ function filterProducts() {
   let filteredProducts;
 
   if (categoryFilter) {
-    filteredProducts = storedProducts.filter(function(product) {
+    filteredProducts = products.filter(function(product) {
       return product.category === categoryFilter;
     });
   } else {
-    filteredProducts = storedProducts;
+    filteredProducts = products;
   }
 
-  displayProducts(filteredProducts);
+  displayFilteredProducts(filteredProducts);
 }
 
 // Sort products by price (descending)
 function sortProductsByPriceDescending() {
-  let sortedProducts = storedProducts.slice().sort(function(a, b) {
+  let sortedProducts = products.slice().sort(function(a, b) {
     return b.prodPrice - a.prodPrice;
   });
-  displayProducts(sortedProducts);
+  displayFilteredProducts(sortedProducts);
 }
 
 // Sort products by price (ascending)
 function sortProductsByPriceAscending() {
-  let sortedProducts = storedProducts.slice().sort(function(a, b) {
+  let sortedProducts = products.slice().sort(function(a, b) {
     return a.prodPrice - b.prodPrice;
   });
-  displayProducts(sortedProducts);
+  displayFilteredProducts(sortedProducts);
 }
+
+// Display the filtered products
+function displayFilteredProducts(filteredProducts) {
+  productsContainer.innerHTML = "";
+
+  let rowContainer = document.createElement("div");
+  rowContainer.classList.add("product-row");
+
+  filteredProducts.forEach(function(product) {
+    let productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+      <h4>${product.productName}</h4>
+      <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
+      <p>${product.productDesc}</p>
+      <p>Price: R${product.prodPrice}</p>
+      <ul class="shop-list">
+        <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>
+        <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
+      </ul>
+    `;
+    rowContainer.appendChild(productCard);
+  });
+
+  productsContainer.appendChild(rowContainer);
+}
+
+// Display the products
+function displayProducts() {
+  displayFilteredProducts(products);
+}
+
+displayProducts();
 
 // ---------------------------------------------------------------------------------------------
 
