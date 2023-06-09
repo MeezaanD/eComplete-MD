@@ -238,11 +238,79 @@ img:hover {
     scroll-snap-align: start;
 }
 
+/* STAR RATING */
+figure.snip1157 {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    padding: 2rem;
+    min-width: 20rem;
+    height: auto;
+    width: 100%;
+    text-align: left;
+    box-shadow: 2px 3px rgba(220, 220, 220, 220);
+    background-color: white;
+}
+
+figure.snip1157 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+
+figure.snip1157 img {
+    max-width: 100%;
+    vertical-align: middle;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    margin: 40px 0 0;
+}
+
+figure.snip1157 blockquote {
+    display: block;
+    border-radius: 8px;
+    position: relative;
+    background-color: #fafafa;
+    padding: 2rem;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.6em;
+    font-style: italic;
+}
+
+figure.snip1157 .arrow {
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 0 solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #fafafa;
+    margin: 0;
+    position: absolute;
+}
+
+figure.snip1157 .author {
+    position: absolute;
+    bottom: 45px;
+    padding: 50px 10px 0 10px;
+    margin: 0;
+    text-transform: uppercase;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+.checked {
+    color: orange;
+}
+
 /* SECTION STYLING */
 
 #home {
     min-height: 90vh;
-    background-color: rgba(250, 250, 250, 255);
+    background-image: linear-gradient(rgba(250, 250, 250, 255) 90%, white);
 }
 
 .sub-menu {
@@ -250,18 +318,17 @@ img:hover {
 }
 
 #featured {
-    min-height: 100vh;
-    background-color: rgba(250, 250, 250, 255);
-}
-
-#about {
-    min-height: 100vh;
-    background-color: black;
+    height: auto;
+    padding-top: 2rem;
+    background-image: linear-gradient(white 90%, rgba(250, 250, 250, 255));
+    padding-bottom: 2rem;
 }
 
 #reviews {
-    min-height: 100vh;
+    height: auto;
+    padding-top: 2rem;
     background-color: rgba(250, 250, 250, 255);
+    padding-bottom: 2rem;
 }
 
 footer {
