@@ -309,7 +309,7 @@ figure.snip1157 .author {
 /* SECTION STYLING */
 
 #home {
-    min-height: 90vh;
+    height: auto;
     background-image: linear-gradient(rgba(250, 250, 250, 255) 90%, white);
 }
 

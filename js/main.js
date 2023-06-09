@@ -326,9 +326,9 @@ function displayFeaturedProducts() {
     productCard.innerHTML = `
       <h4>${product.productName}</h4>
       <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
-      <p>${product.productDesc}</p>
+      <p class="px-1">${product.productDesc}</p>
       <p>Price: R${product.prodPrice}</p>
-      <button class="add" onclick="addToCart(${product.id})">Add to Cart</button>
+      <button class="add mb-5" onclick="addToCart(${product.id})">Add to Cart</button>
     `;
 
     row.appendChild(productCard);
