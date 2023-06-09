@@ -328,10 +328,7 @@ function displayFeaturedProducts() {
       <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
       <p>${product.productDesc}</p>
       <p>Price: R${product.prodPrice}</p>
-      <ul class="shop-list">
-        <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>
-        <li><a class="view" href="html/products.html?id=${product.id}">View Product</a></li>
-      </ul>
+      <button class="add" onclick="addToCart(${product.id})">Add to Cart</button>
     `;
 
     row.appendChild(productCard);
