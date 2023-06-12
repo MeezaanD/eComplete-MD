@@ -318,7 +318,7 @@ function displayFeaturedProducts() {
   });
 
   let row = document.createElement("div");
-  row.classList.add("featured-product-row"); // Add a CSS class for the row
+  row.classList.add("featured-product-row");
 
   featuredProducts.forEach(function(product) {
     let productCard = document.createElement("div");
