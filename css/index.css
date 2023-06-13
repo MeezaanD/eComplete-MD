@@ -190,7 +190,6 @@ b {
     box-shadow: 3px 3px rgb(140, 140, 140);
     position: absolute;
     right: 0;
-    margin: 1rem;
 }
 
 .proceed {
@@ -352,6 +351,14 @@ img:hover {
     display: flex;
     gap: 1rem;
     padding: 0;
+}
+
+.sub-menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 1rem;
+    color: blue;
 }
 
 .shop-list li:nth-child(3) {
@@ -588,6 +595,7 @@ footer {
 
     .sub-menu {
         display: block;
+        padding-left: 6rem;
     }
 
     .dropdown-toggle {
