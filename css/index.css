@@ -105,7 +105,8 @@ b {
 
 .view {
     text-decoration: none;
-    padding: 1.4rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
     width: auto;
     height: 6rem;
     border-radius: 2px;
@@ -140,7 +141,14 @@ b {
     background-color: black;
     box-shadow: 3px 3px rgb(140, 140, 140);
 }
-
+#quantity {
+    text-align: center;
+    font-size: large;
+    padding: 1rem;
+    height: 4rem;
+    border-radius: 2px;
+    box-shadow: 3px 3px rgb(140, 140, 140);
+}
 #categoryFilter {
     text-align: center;
     font-size: large;
@@ -240,6 +248,14 @@ img:hover {
     gap: 2rem;
 }
 
+.featured-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+}
+
 .methods li {
     margin-top: 1rem;
 }
@@ -260,7 +276,7 @@ img:hover {
     padding: 0;
 }
 
-.shop-list li:nth-child(2) {
+.shop-list li:nth-child(3) {
     margin-top: 1.3rem;
 }
 
@@ -325,7 +341,7 @@ figure.snip1157 img {
     margin: 40px 0 0;
 }
 
-figure.snip1157 imgquote {
+figure.snip1157 blockquote {
     display: img;
     border-radius: 8px;
     position: relative;
@@ -374,7 +390,7 @@ figure.snip1157 .author {
 .macbook,
 .smartwatch,
 .airpods {
-    width: 20rem;
+    width: 25rem;
     min-height: 20rem;
 }
 
@@ -404,6 +420,38 @@ figure.snip1157 .author {
     padding-bottom: 2rem;
 }
 
+.carousel-width {
+    width: 50rem;
+  }
+
+  .featured-product-card {
+    width: 100%;
+    text-align: center;
+  }
+
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* .carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .featured-product-card {
+    text-align: center;
+  } */
+  
+
 #reviews {
     height: auto;
     padding-top: 2rem;
@@ -422,7 +470,7 @@ footer {
 
 @media (max-width: 600px) {
     .nav {
-        display: img;
+        display: block;
     }
 
     .dropdown-toggle {
@@ -443,15 +491,19 @@ footer {
     }
 
     .shop-list {
-        display: img;
+        display: block;
     }
 
     .shop-list li {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #quantity {
+        margin-bottom: 1rem;
     }
 
     .methods {
-        display: img;
+        display: block;
     }
 
     .methods li {
@@ -459,7 +511,7 @@ footer {
     }
 
     .cart-list {
-        display: img;
+        display: block;
     }
 
     .black, .white {
