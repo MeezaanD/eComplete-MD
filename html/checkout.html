@@ -15,27 +15,29 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-black">
-            <div class="container-fluid">
+            <div class="container-fluid bg-black">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span style="color: #ffffff;"><i class="fa-solid fa-bars"></i> Menu</span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav bg-black m-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="navbar-brand" href="../index.html">
-                                <i class="fa-brands fa-apple" style="color: #ffffff;"></i>
+                                <i class="fa-brands fa-apple"
+                                    style="color: #ffffff;font-size: larger;margin-top: 0.6rem;"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light active" aria-current="page" href="../index.html">Home</a>
+                            <a style="font-size: larger;" class="nav-link text-light active" aria-current="page"
+                                href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="./store.html">Store</a>
+                            <a style="font-size: larger;" class="nav-link text-light" href="./store.html">Store</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Checkout
+                            <a style="font-size: larger;" class="nav-link text-light" href="#">Checkout
                             </a>
                         </li>
                     </ul>
@@ -69,69 +71,72 @@
         <div class="container-fluid ">
             <div class="row align-items-start">
                 <form onsubmit="purchaseCart()" class="row g-3 px-5">
-                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
-                    <h2>Shipping Address</h2>
-                    
-                    <div class="row g-3 pt-5">
-                        <div class="col-12 col-md-6 col-lg-6">
-                            <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="loremipsum@gmail.com" required>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-6">
-                            <label for="inputPassword4" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="**********" required>
-                        
-                        </div>
-                      </div>
-                        <div class="col-12">
-                          <label for="inputAddress" class="form-label">Street</label>
-                          <input type="text" class="form-control" id="inputAddress" placeholder="314 Imam Haron Road" required>
+                    <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                        <h2>Shipping Address</h2>
+
+                        <div class="row g-3 pt-5">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4"
+                                    placeholder="loremipsum@gmail.com" required>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <label for="inputPassword4" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword4" placeholder="**********"
+                                    required>
+
+                            </div>
                         </div>
                         <div class="col-12">
-                          <label for="inputAddress" class="form-label">Suburb</label>
-                          <input type="text" class="form-control" id="inputAddress" placeholder="Landsdowne" required>
+                            <label for="inputAddress" class="form-label">Street</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="314 Imam Haron Road"
+                                required>
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label">Suburb</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Landsdowne" required>
                         </div>
                         <div class="col-md-6">
-                          <label for="inputCity" class="form-label">City</label>
-                          <input type="text" class="form-control" id="inputCity" placeholder="Cape Town" required>
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="Cape Town" required>
                         </div>
                         <div class="col-md-4">
-                          <label for="inputState" class="form-label">State</label>
-                          <select id="inputState" class="form-select" required>
-                            <option selected>Choose...</option>
-                            <option>North Cape</option>
-                            <option>Eastern Cape</option>
-                            <option>Western Cape</option>
-                            <option>Gauteng</option>
-                          </select>
+                            <label for="inputState" class="form-label">State</label>
+                            <select id="inputState" class="form-select" required>
+                                <option selected>Choose...</option>
+                                <option>North Cape</option>
+                                <option>Eastern Cape</option>
+                                <option>Western Cape</option>
+                                <option>Gauteng</option>
+                            </select>
                         </div>
                         <div class="col-md-2">
-                          <label for="inputZip" class="form-label">Postal Code</label>
-                          <input type="text" class="form-control" id="inputZip" placeholder="7880" required>
+                            <label for="inputZip" class="form-label">Postal Code</label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="7880" required>
                         </div>
                         <div class="col-12">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                              Save Details 
-                            </label>
-                          </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Save Details
+                                </label>
+                            </div>
                         </div>
-                        
-                </div>
-                <div class="col-12 col-sm-4 col-md-4 col-lg-6">
-                    <h2>Order Summary</h2>
-                    <div id="shopping-cart"></div>
-                    <div id="totalPrice"></div>
-                    <div class="col-12">
-                        <button type="submit" class="purchase">Purchase Items</button>
-                      </div>
-                </div>
-                
-            </form>
+
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-6">
+                        <h2>Order Summary</h2>
+                        <div id="shopping-cart"></div>
+                        <div id="totalPrice"></div>
+                        <div class="col-12">
+                            <button type="submit" class="purchase">Purchase Items</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
-        
+
     </main>
 
 

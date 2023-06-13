@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');  
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 /* TEXT STYLING */
@@ -17,6 +17,29 @@ h5,
 h6 {
     letter-spacing: 1px;
     font-weight: bolder;
+}
+
+.banner-text {
+    text-align: center;
+    letter-spacing: none !important;
+    padding: 5rem;
+    margin-left: 2rem;
+    margin-bottom: 5rem;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    color: black;
+    text-shadow: 3px 3px 5px rgb(130, 130, 130);
+}
+
+.category-black {
+    color: black;
+}
+
+.category-white {
+    color: white;
 }
 
 .black,
@@ -37,10 +60,10 @@ h6 {
 .black::after {
     content: "";
     position: absolute;
-    width: 100px;
+    width: 120px;
     height: 5px;
     bottom: 0;
-    left: 10%;
+    left: -8%;
     background-color: black;
     visibility: hidden;
     transform: scaleX(0);
@@ -50,10 +73,10 @@ h6 {
 .white::after {
     content: "";
     position: absolute;
-    width: 100px;
+    width: 120px;
     height: 5px;
     bottom: 0;
-    left: 10%;
+    left: -8%;
     background-color: white;
     visibility: hidden;
     transform: scaleX(0);
@@ -79,12 +102,56 @@ b {
     letter-spacing: 1px;
 }
 
+.new {
+    color: blue;
+}
+
+.advertisedProduct {
+    font-size: 45px;
+    color: white;
+}
+
+.slogan {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
+}
+
+.preview {
+    text-decoration: none;
+    /* border: 1px solid white; */
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 1rem;
+    border-radius: 2px;
+    color: white;
+}
+
+.prices {
+    text-decoration: none;
+    /* border: 1px solid white; */
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 1rem;
+    border-radius: 2px;
+    color: white;
+    width: 8rem;
+}
+
 /* BUTTON STYLING */
 
-.add,
 .sort,
 .purchase {
     padding: 1rem;
+    width: auto;
+    height: 4rem;
+    border-radius: 2px;
+    color: white;
+    background-color: black;
+    box-shadow: 3px 3px rgb(140, 140, 140);
+}
+.add {
+    padding: 1.8rem;
+    padding-bottom: 2.5rem;
     width: auto;
     height: 4rem;
     border-radius: 2px;
@@ -116,11 +183,14 @@ b {
 }
 
 .my-cart {
-    padding: 1rem;
+    padding: 1.7rem;
     border-radius: 2px;
     color: white;
     background-color: black;
     box-shadow: 3px 3px rgb(140, 140, 140);
+    position: absolute;
+    right: 0;
+    margin: 1rem;
 }
 
 .proceed {
@@ -141,14 +211,17 @@ b {
     background-color: black;
     box-shadow: 3px 3px rgb(140, 140, 140);
 }
+
 #quantity {
     text-align: center;
     font-size: large;
     padding: 1rem;
-    height: 4rem;
+    height: 4.5rem;
+    width: 6rem;
     border-radius: 2px;
     box-shadow: 3px 3px rgb(140, 140, 140);
 }
+
 #categoryFilter {
     text-align: center;
     font-size: large;
@@ -177,6 +250,10 @@ input[type="number"] {
 .navbar-toggler,
 .collapsed {
     color: white;
+}
+
+.navbar {
+    height: 5rem;
 }
 
 
@@ -243,9 +320,10 @@ img:hover {
 
 .methods {
     list-style: none;
-    display: flex;
+    display: block;
     justify-content: center;
     gap: 2rem;
+    padding-top: 5rem;
 }
 
 .featured-list {
@@ -386,6 +464,11 @@ figure.snip1157 .author {
     background-image: linear-gradient(rgba(250, 250, 250, 255) 90%, white);
 }
 
+#catgories {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(250, 250, 250, 255) 90%, white);
+}
+
 .iphone,
 .macbook,
 .smartwatch,
@@ -422,35 +505,65 @@ figure.snip1157 .author {
 
 .carousel-width {
     width: 50rem;
-  }
+}
 
-  .featured-product-card {
+.featured-product-card {
     width: 100%;
     text-align: center;
-  }
+}
 
-  .carousel-container {
+.carousel-container {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  /* .carousel-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .featured-product-card {
-    text-align: center;
-  } */
-  
+}
+
+.test {
+    min-height: 85vh;
+    /* height: auto; */
+}
+
+.video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Maintain a 16:9 aspect ratio (9 divided by 16) */
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
+#store-banner {
+    background-image: url('https://i.postimg.cc/rpkKvTxq/Apple-New-store-opening-Yas-Mall-interior-Full-Bleed-Image-jpg-large.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 75vh;
+    position: relative;
+}
+
+#store-banner:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.515);
+    z-index: 1;
+}
 
 #reviews {
     height: auto;
@@ -468,8 +581,12 @@ footer {
 
 /* RESPONSIVENESS */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .nav {
+        display: block;
+    }
+
+    .sub-menu {
         display: block;
     }
 
@@ -504,6 +621,7 @@ footer {
 
     .methods {
         display: block;
+        padding-top: 0;
     }
 
     .methods li {
@@ -514,7 +632,8 @@ footer {
         display: block;
     }
 
-    .black, .white {
+    .black,
+    .white {
         display: block;
     }
 
@@ -522,4 +641,29 @@ footer {
     .white::after {
         display: none;
     }
+
+    .banner-text {
+        color: white;
+        text-shadow: none;
+        text-align: start;
+        position: relative;
+        left: 0;
+    }
+
+    #store-banner {
+        /* background-size: 100vw 100vh; */
+        background-image: none;
+        background-color: black;
+        min-height: 5vh;
+        background-position: none;
+        background-size: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .my-cart {
+        left: 30px;
+        position: relative;
+    }
+    
 }

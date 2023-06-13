@@ -16,27 +16,30 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-black sticky-top">
-            <div class="container-fluid">
+            <div class="container-fluid bg-black">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span style="color: #ffffff;"><i class="fa-solid fa-bars"></i> Menu</span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                <div class="collapse bg-black navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav bg-black m-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="navbar-brand" href="#">
-                                <i class="fa-brands fa-apple" style="color: #ffffff;"></i>
+                                <i class="fa-brands fa-apple"
+                                    style="color: #ffffff;font-size: larger;margin-top: 0.6rem;"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
+                            <a style="font-size: larger;" class="nav-link text-light active" aria-current="page"
+                                href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="/html/store.html">Store</a>
+                            <a style="font-size: larger;" class="nav-link text-light" href="/html/store.html">Store</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="/html/checkout.html">Checkout
+                            <a style="font-size: larger;" class="nav-link text-light"
+                                href="/html/checkout.html">Checkout
                             </a>
                         </li>
                     </ul>
@@ -49,86 +52,112 @@
 
     <ul class="nav justify-content-center sub-menu py-1">
         <li class="nav-item">
-            <a class="nav-link" href="#featured">Featured Products</a>
+            <a style="font-size: larger;" class="nav-link" href="#categories">All Categories</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#reviews">Reviews</a>
+            <a style="font-size: larger;" class="nav-link" href="#featured">Featured Products</a>
+        </li>
+        <li class="nav-item">
+            <a style="font-size: larger;" class="nav-link" href="#reviews">Reviews</a>
         </li>
     </ul>
 
     <main>
         <section id="home">
+            <div id="AdvertisingExampleInterval" class="carousel slide mx-auto" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item advertising">
+                        <div class="video">
+                            <!-- <iframe src="https://www.youtube.com/embed/Btf4mN37OsU" style="width: 100%;min-height: 88vh;height: fit-content;" frameborder="0"></iframe> -->
+                        </div>
+                        
+                    </div>
+                    <div class="carousel-item advertising active" data-bs-interval="10000">
+                        <div class="container-fluid test text-center bg-black">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6 py-5 ps-5">
+                                    <h5 class="new text-start">NEW</h5>
+                                    <h3 class="advertisedProduct text-start">iPhone 14 Pro</h3>
+                                    <h4 class="slogan text-start">PRO BEYOND</h4>
+                                    <a class="prices d-flex justify-content-start" href="/html/store.html">See Prices</a>
+                                </div>
+                                <div class="col-sm-6 py-5">
+                                    <img class="img-fluid" style="height: max-content;" src="https://i.postimg.cc/BZzhXyQG/i-Phone-14-Pro-Deep-Purple-PDP-Image-Position-5-EN-scaled-removebg-preview.png" alt="iphone14">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item advertising" data-bs-interval="2000">
+                        <div class="container-fluid test
+                     text-center bg-black">
+                            <div class="row align-items-center pt-5">
+                                <div class="col-sm-6 py-5">
+                                    <img class="img-fluid" style="height: max-content;"
+                                        src="https://i.postimg.cc/rFtfWJKR/Apple-WWDC23-Mac-Book-Air-15-in-hero-230605-big-jpg-large-removebg-preview.png"
+                                        alt="macbook pro 15">
+                                </div>
+                                <div class="col-sm-6 py-5">
+                                    <h5 class="new">NEW</h5>
+                                    <h3 class="advertisedProduct">MacBook Air 15</h3>
+                                    <p class="slogan">IMPRESSIVELY BIG, IMPRESSIVELY THIN</p>
+                                    <a class="preview "href="/html/products.html?id=6">Preview</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#AdvertisingExampleInterval"
+                    data-bs-slide="prev">
+                    <!-- <i class="fa-solid fa-circle-arrow-left"></i> -->
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#AdvertisingExampleInterval"
+                    data-bs-slide="next">
+                    <!-- <i class="fa-solid fa-circle-right"></i> -->
+                </button>
+            </div>
+        </section>
+
+        <section id="categories">
+            <h2 class="text-center pb-5">ALL CATEGORIES</h2>
             <div class="container-fluid">
                 <div class="row d-flex">
-                    <div class="col-12 col-sm-6 iphone text-center">
+                    <div class="col-12 col-sm-6 iphone text-center py-4">
                         <img class="img-fluid iphone" src="https://i.postimg.cc/fyJGMbt1/hero1-removebg-preview.png"
                             alt="iphone">
-                        <a href="/html/store.html" class="white">Shop Apple iPhones</a>
+                        <h4 href="/html/store.html" class="category-white">Shop Apple iPhones</h4>
+                        <a href="/html/store.html" class="white" onclick="setDisplayValue()">View Store</a>
+
+                        <select style="display: none;" id="categoryFilter" onchange="filterProducts()">
+                            <option value="">Display All Products</option>
+                            <option value="phone">iPhone</option>
+                            <option value="macbook">Macbook</option>
+                            <option value="watch">Smart Watch</option>
+                            <option value="headphone">Airpods</option>
+                        </select>
+
                     </div>
-                    <div class="col-12 col-sm-6 macbook text-center">
+                    <div class="col-12 col-sm-6 macbook text-center py-4">
                         <img class="img-fluid macbook" src="https://i.postimg.cc/PqMs49nV/hero2-removebg-preview.png"
                             alt="macbook">
-                        <a href="/html/store.html" class="black">Shop Apple Macbooks</a>
+                        <h4 href="/html/store.html" class="category-black pt-5">Shop Apple Macbooks</h4>
+                        <a href="/html/store.html" class="black">View Store</a>
                     </div>
                 </div>
                 <div class="row d-flex">
-                    <div class="col-12 col-sm-6 smartwatch text-center">
+                    <div class="col-12 col-sm-6 smartwatch text-center py-4">
                         <img class="img-fluid smartwatch" src="https://i.postimg.cc/85K88v5h/hero3-removebg-preview.png"
                             alt="smartwatch">
-                        <a href="/html/store.html" class="black">Shop Apple Smartwatches</a>
+                        <h4 href="/html/store.html" class="category-black">Shop Apple Smartwatches</h4>
+                        <a href="/html/store.html" class="black">View Store</a>
                     </div>
-                    <div class="col-12 col-sm-6 airpods text-center">
+                    <div class="col-12 col-sm-6 airpods text-center py-4">
                         <img class="img-fluid airpods" src="https://i.postimg.cc/TwY8H0Rd/hero4-removebg-preview.png"
                             alt="airpods">
-                        <a href="/html/store.html" class="white">Shop Apple Airpods</a>
+                        <h4 href="/html/store.html" class="category-white">Shop Apple Airpods</h4>
+                        <a href="/html/store.html" class="white">View Store</a>
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="container pt-5">
-                <div id="carouselExampleCaptions" class="carousel slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
-                            aria-label="Slide 4"></button>
-                    </div>
-                    <div class="carousel-inner p-3">
-                        <div class="carousel-item active">
-                            <h1 class="text-center">Apple iPhones</h1>
-                            <img src="https://i.postimg.cc/kXgczYq2/hero1.jpg" class="img-fluid d-block c p-0arousel-img"
-                                alt="hero1">
-                        </div>
-                        <div class="carousel-item">
-                            <h1 class="text-center">Apple Macbooks</h1>
-                            <img src="https://i.postimg.cc/2y2x3hFj/hero2.jpg" class="img-fluid d-block c p-0arousel-img"
-                                alt="hero2">
-                        </div>
-                        <div class="carousel-item">
-                            <h1 class="text-center">Apple Smart Watches</h1>
-                            <img src="https://i.postimg.cc/Dfg6C3kV/hero3.jpg" class="img-fluid d-block c p-0arousel-img"
-                                alt="hero3">
-                        </div>
-                        <div class="carousel-item">
-                            <h1 class="text-center">Apple Airpods</h1>
-                            <img src="https://i.postimg.cc/XvW00BL1/hero4.jpg" class="img-fluid d-block c p-0arousel-img"
-                                alt="hero4">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="prev">
-                        <i class="fa-solid fa-circle-arrow-left"></i>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="next">
-                        <i class="fa-solid fa-circle-right"></i>
-                    </button>
-                </div>
-            </div> -->
         </section>
 
         <section id="featured">
@@ -151,13 +180,10 @@
                 </div>
             </div>
 
-
             <div style="display: none;" id="productsContainer"></div>
             <div style="display: none;" id="productDetailsContainer"></div>
             <div style="display: none;" id="shopping-cart"></div>
             <div style="display: none;" id="totalPrice"></div>
-
-        
 
         </section>
 
@@ -252,22 +278,22 @@
                 <div class="col-12 col-sm-3 col-md-3 col-lg-3">
                     <h5>Company</h5>
                     <ul class="footer-list">
-                        <li><a class="nav-link" href="#">Home</a></li>
-                        <li><a class="nav-link" href="#reviews">Reviews</a></li>
+                        <li><a style="font-size: larger;" class="nav-link" href="#">Home</a></li>
+                        <li><a style="font-size: larger;" class="nav-link" href="#reviews">Reviews</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-3 col-md-3 col-lg-3">
                     <h5>Quick Links</h5>
                     <ul class="footer-list">
-                        <li><a class="nav-link" href="/html/store.html">Store</a></li>
-                        <li><a class="nav-link" href="/html/checkout.html">Checkout</a></li>
+                        <li><a style="font-size: larger;" class="nav-link" href="/html/store.html">Store</a></li>
+                        <li><a style="font-size: larger;" class="nav-link" href="/html/checkout.html">Checkout</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-3 col-md-3 col-lg-3">
                     <ul class="footer-list">
                         <h5>More Information</h5>
-                        <li><a class="nav-link" href="#">Terms & Conditions</a></li>
-                        <li><a class="nav-link" href="#">FAQ</a></li>
+                        <li><a style="font-size: larger;" class="nav-link" href="#">Terms & Conditions</a></li>
+                        <li><a style="font-size: larger;" class="nav-link" href="#">FAQ</a></li>
                         <li><a class="text-transparent" href="#">Text</a></li>
                     </ul>
                 </div>
@@ -290,7 +316,7 @@
     <script src="https://kit.fontawesome.com/a13e2b2f6c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

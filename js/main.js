@@ -183,8 +183,10 @@ function displayStoredProducts() {
           <option value="3">3</option>
         </select>
         </li>
+        </ul>
+        <ul style="list-style: none;padding: 0;margin-top: 2rem;">
         <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
-      </ul>
+        </ul>
     `;
     rowContainer.appendChild(productCard);
   });
@@ -210,19 +212,19 @@ function displayProducts() {
     }" />
       <p>${product.productDesc}</p>
       <p>Price: R${product.prodPrice}</p>
-      <li>
-      <button class="add" onclick="addToCart(${JSON.stringify(product)})">Add to Cart</button>
-      </li>        
-      <li>
-      <select id="quantity" name="quantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
-      </li>
-      <li><a class="view" href="./products.html?id=${
-        product.id
-      }">View Product</a></li>
+      <ul class="shop-list">
+        <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>
+        <li>
+        <select id="quantity" name="quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        </li>
+        </ul>
+        <ul style="list-style: none;padding: 0;margin-top: 2rem;">
+        <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
+        </ul>
     `;
     rowContainer.appendChild(productCard);
   });
@@ -290,8 +292,10 @@ function displayFilteredProducts(filteredProducts) {
           <option value="3">3</option>
         </select>
         </li>
+        </ul>
+        <ul style="list-style: none;padding: 0;margin-top: 2rem;">
         <li><a class="view" href="./products.html?id=${product.id}">View Product</a></li>
-      </ul>
+        </ul>
     `;
     rowContainer.appendChild(productCard);
   });
@@ -390,9 +394,8 @@ function displayFeaturedProducts() {
     let productCard = document.createElement("div");
     productCard.classList.add("featured-product-card");
     productCard.innerHTML = `
-      <h4>${product.productName}</h4>
       <img style="width: 20rem;display: flex; justify-content: center;padding-bottom: 50px;" src="${product.productImage}" alt="${product.productName}" />
-      <p class="px-1">${product.productDesc}</p>
+      <h3>${product.productName}</h3>
       <p>Price: R${product.prodPrice}</p>
       <ul class="featured-list">
       <li>
@@ -530,6 +533,11 @@ function init() {
   displayFeaturedProducts();
   updateCart();
 }
+
+function setCategoryFilter(value) {
+  document.getElementById("categoryFilter").value = value;
+}
+
 
 init(); 
 
