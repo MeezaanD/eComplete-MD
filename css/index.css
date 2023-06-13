@@ -150,9 +150,9 @@ b {
     box-shadow: 3px 3px rgb(140, 140, 140);
 }
 .add {
-    padding: 1.8rem;
-    padding-bottom: 2.5rem;
-    width: auto;
+    padding: 1.5rem;
+    padding-bottom: 3rem;
+    width: 9.5rem;
     height: 4rem;
     border-radius: 2px;
     color: white;
@@ -530,24 +530,8 @@ figure.snip1157 .author {
     /* height: auto; */
 }
 
-.video {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Maintain a 16:9 aspect ratio (9 divided by 16) */
-    overflow: hidden;
-}
-
-.video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.video-container iframe {
-    width: 100%;
-    height: 100%;
+.space {
+    padding-left: 15rem;
 }
 
 
@@ -596,6 +580,10 @@ footer {
     .sub-menu {
         display: block;
         padding-left: 6rem;
+    }
+
+    .space {
+        padding-left: 5rem;
     }
 
     .dropdown-toggle {
