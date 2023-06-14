@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>eComplete(Assessment)</title>
 </head>
 
@@ -71,7 +72,7 @@
                             <div class="row align-items-center">
                             <h5 class="new">COMING SOON</h5>
                             <h4 class="slogan">INTRODUCING</h4>
-                            <img class="img-fluid" style="width: 40rem;height: 25rem;" src="https://i.postimg.cc/nzZgnHF4/vision-removebg-preview.png" alt="iphone14">
+                            <img class="img-fluid" style="width: auto;height: 25rem;" src="https://i.postimg.cc/nzZgnHF4/vision-removebg-preview.png" alt="iphone14">
                             <h3 class="advertisedProduct"> <i class="fa-brands fa-apple"
                                 style="color: #ffffff;"></i>Vision Pro</h3>
                             </div>
@@ -82,10 +83,10 @@
                         <div class="container-fluid test text-center bg-black">
                             <div class="row align-items-center">
                                 <div class="col-sm-6 py-5 px-5 space">
-                                    <h5 class="new text-start">NEW</h5>
-                                    <h3 class="advertisedProduct text-start">iPhone 14 Pro</h3>
-                                    <h4 class="slogan text-start">PRO BEYOND</h4>
-                                    <a class="prices d-flex justify-content-start" href="/html/store.html">See Prices</a>
+                                    <h5 class="new">NEW</h5>
+                                    <h3 class="advertisedProduct">iPhone 14 Pro</h3>
+                                    <h4 class="slogan">PRO BEYOND</h4>
+                                    <a class="prices" href="/html/store.html">See Prices</a>
                                 </div>
                                 <div class="col-sm-6 py-5">
                                     <img class="img-fluid" style="height: max-content;" src="https://i.postimg.cc/BZzhXyQG/i-Phone-14-Pro-Deep-Purple-PDP-Image-Position-5-EN-scaled-removebg-preview.png" alt="iphone14">
@@ -114,11 +115,11 @@
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#AdvertisingExampleInterval"
                     data-bs-slide="prev">
-                    <!-- <i class="fa-solid fa-circle-arrow-left"></i> -->
+                    <!-- <i class="fa-solid fa-circle-arrow-left text-light"></i> -->
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#AdvertisingExampleInterval"
                     data-bs-slide="next">
-                    <!-- <i class="fa-solid fa-circle-right"></i> -->
+                    <!-- <i class="fa-solid fa-circle-right text-light"></i> -->
                 </button>
             </div>
         </section>
@@ -127,7 +128,7 @@
             <h2 class="text-center pb-5">ALL CATEGORIES</h2>
             <div class="container-fluid">
                 <div class="row d-flex">
-                    <div class="col-12 col-sm-6 iphone text-center py-4">
+                    <div data-aos="fade-right" class="col-12 col-sm-6 iphone text-center py-4">
                         <img class="img-fluid iphone" src="https://i.postimg.cc/fyJGMbt1/hero1-removebg-preview.png"
                             alt="iphone">
                         <h4 href="/html/store.html" class="category-white">Shop Apple iPhones</h4>
@@ -142,7 +143,7 @@
                         </select>
 
                     </div>
-                    <div class="col-12 col-sm-6 macbook text-center py-4">
+                    <div data-aos="fade-left" class="col-12 col-sm-6 macbook text-center py-4">
                         <img class="img-fluid macbook" src="https://i.postimg.cc/PqMs49nV/hero2-removebg-preview.png"
                             alt="macbook">
                         <h4 href="/html/store.html" class="category-black pt-5">Shop Apple Macbooks</h4>
@@ -150,13 +151,13 @@
                     </div>
                 </div>
                 <div class="row d-flex">
-                    <div class="col-12 col-sm-6 smartwatch text-center py-4">
+                    <div data-aos="fade-right" class="col-12 col-sm-6 smartwatch text-center py-4">
                         <img class="img-fluid smartwatch" src="https://i.postimg.cc/85K88v5h/hero3-removebg-preview.png"
                             alt="smartwatch">
                         <h4 href="/html/store.html" class="category-black">Shop Apple Smartwatches</h4>
                         <a href="/html/store.html" class="black">View Store</a>
                     </div>
-                    <div class="col-12 col-sm-6 airpods text-center py-4">
+                    <div data-aos="fade-left" class="col-12 col-sm-6 airpods text-center py-4">
                         <img class="img-fluid airpods" src="https://i.postimg.cc/TwY8H0Rd/hero4-removebg-preview.png"
                             alt="airpods">
                         <h4 href="/html/store.html" class="category-white">Shop Apple Airpods</h4>
@@ -318,7 +319,10 @@
 
 
     <script src="/js/main.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
     <script src="https://kit.fontawesome.com/a13e2b2f6c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">

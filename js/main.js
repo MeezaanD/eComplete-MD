@@ -170,9 +170,8 @@ function displayStoredProducts() {
     let productCard = document.createElement("div");
     productCard.classList.add("product-card");
     productCard.innerHTML = `
-      <h4>${product.productName}</h4>
-      <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
-      <p>${product.productDesc}</p>
+    <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
+    <h4>${product.productName}</h4>
       <p>Price: R${product.prodPrice}</p>
       <ul class="shop-list">
         <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>
@@ -210,7 +209,6 @@ function displayProducts() {
       <img style="width: 15rem;" src="${product.productImage}" alt="${
       product.productName
     }" />
-      <p>${product.productDesc}</p>
       <p>Price: R${product.prodPrice}</p>
       <ul class="shop-list">
         <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>
@@ -279,9 +277,8 @@ function displayFilteredProducts(filteredProducts) {
     let productCard = document.createElement("div");
     productCard.classList.add("product-card");
     productCard.innerHTML = `
-      <h4>${product.productName}</h4>
-      <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
-      <p>${product.productDesc}</p>
+    <img style="width: 15rem;" src="${product.productImage}" alt="${product.productName}" />
+    <h4>${product.productName}</h4>
       <p>Price: R${product.prodPrice}</p>
       <ul class="shop-list">
         <li><button class="add" onclick="addToCart(${product.id})">Add to Cart</button></li>

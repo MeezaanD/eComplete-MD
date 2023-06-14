@@ -8,6 +8,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+main {
+    overflow-x: hidden;
+}
+
 /* TEXT STYLING */
 
 h2,
@@ -188,8 +192,7 @@ b {
     color: white;
     background-color: black;
     box-shadow: 3px 3px rgb(140, 140, 140);
-    position: absolute;
-    right: 0;
+    width: 8rem;
 }
 
 .proceed {
@@ -469,11 +472,13 @@ figure.snip1157 .author {
 #home {
     min-height: 100vh;
     background-image: linear-gradient(rgba(250, 250, 250, 255) 90%, white);
+    overflow-x: hidden;
 }
 
 #catgories {
     min-height: 100vh;
     background-image: linear-gradient(rgba(250, 250, 250, 255) 90%, white);
+    overflow-x: hidden;
 }
 
 .iphone,

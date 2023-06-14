@@ -48,8 +48,15 @@
     <section id="store-banner">
       <h2 class="banner-text">The App Store, Open for business</h2>
     </section>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <ul class="methods">
+            <li>
     <!-- Button trigger modal -->
-    <button id="view-cart-button" type="button" class="my-cart my-1 mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button id="view-cart-button" type="button" class="my-cart" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <i class="fa-sharp fa-solid fa-cart-shopping"></i>
     </button>
 
@@ -72,11 +79,7 @@
         </div>
       </div>
     </div>
-
-    <div class="container-fluid">
-      <div class="row pt-5">
-        <div class="col-sm-3">
-          <ul class="methods">
+            </li>
             <li>
               <select id="categoryFilter" onchange="filterProducts()">
                 <option value="">Display All Products</option>
@@ -102,8 +105,7 @@
           </ul>
 
         </div>
-        <div class="col-sm-9 pt-5">
-
+        <div class="col-sm-9">
           <div class="pt-5" id="productsContainer"></div>
         </div>
       </div>
